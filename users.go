@@ -14,10 +14,10 @@ func (users Users) SortedInsert(user *User) Users {
 	}
 
 	// insert the user
-	if (i == 0) {
+	if i == 0 {
 		// beginning
 		users = append(Users{user}, users...)
-	} else if (i == length) {
+	} else if i == length {
 		// end
 		users = append(users, user)
 	} else {
@@ -29,4 +29,15 @@ func (users Users) SortedInsert(user *User) Users {
 	}
 
 	return users
+}
+
+// Check if the particular user already exists.
+func (users Users) Exists(username string) bool {
+	for _, user := range users {
+		if user.Login == username {
+			return true
+		}
+	}
+
+	return false
 }
