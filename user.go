@@ -42,5 +42,5 @@ type User struct {
 
 // Returns true if a < b and false otherwise
 func (a *User) Cmp(b *User) bool {
-	return a.Login < b.Login
+	return a.Name < b.Name
 }

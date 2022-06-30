@@ -6,25 +6,25 @@ import (
 
 func TestSortedInsertBeginning(t *testing.T) {
 	// initial
-	users := Users{&User{Login: "scorpion"}, &User{Login: "subzero"}}
+	users := Users{&User{Name: "scorpion"}, &User{Name: "subzero"}}
 
 	// insert another user (at the beginning)
-	user := &User{Login: "liukang"}
+	user := &User{Name: "liukang"}
 
 	users = users.SortedInsert(user)
 
 	// check it was inserted at the beginning
 	if users[0] != user {
-		t.Fatalf("Expected: %s. Actual: %s", user.Login, users[0].Login)
+		t.Fatalf("Expected: %s. Actual: %s", user.Name, users[0].Name)
 	}
 }
 
 func TestSortedInsertEnd(t *testing.T) {
 	// initial
-	users := Users{&User{Login: "johnnycage"}, &User{Login: "raiden"}}
+	users := Users{&User{Name: "johnnycage"}, &User{Name: "raiden"}}
 
 	// insert another user (at the end)
-	user := &User{Login: "subzero"}
+	user := &User{Name: "subzero"}
 
 	users = users.SortedInsert(user)
 
@@ -32,16 +32,16 @@ func TestSortedInsertEnd(t *testing.T) {
 	actual := users[len(users)-1]
 
 	if actual != user {
-		t.Fatalf("Expected: %s. Actual: %s", user.Login, actual.Login)
+		t.Fatalf("Expected: %s. Actual: %s", user.Name, actual.Name)
 	}
 }
 
 func TestSortedInsertMiddle(t *testing.T) {
 	// initial
-	users := Users{&User{Login: "johnnycage"}, &User{Login: "raiden"}}
+	users := Users{&User{Name: "johnnycage"}, &User{Name: "raiden"}}
 
 	// insert another user (at the end)
-	user := &User{Login: "kitana"}
+	user := &User{Name: "kitana"}
 
 	users = users.SortedInsert(user)
 
@@ -49,6 +49,6 @@ func TestSortedInsertMiddle(t *testing.T) {
 	actual := users[1]
 
 	if actual != user {
-		t.Fatalf("Expected: %s. Actual: %s", user.Login, actual.Login)
+		t.Fatalf("Expected: %s. Actual: %s", user.Name, actual.Name)
 	}
 }
