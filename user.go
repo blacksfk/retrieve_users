@@ -1,5 +1,6 @@
 package retrieve_users
 
+// Represents a github user.
 type User struct {
 	Login               string `json:"login"`
 	Id                  string `json:"id"`
@@ -33,4 +34,9 @@ type User struct {
 	Following           string `json:"following"`
 	Created_at          string `json:"created_at"`
 	Updated_at          string `json:"updated_at"`
+}
+
+// Returns true if a < b and false otherwise
+func (a *User) Cmp(b *User) bool {
+	return a.Login < b.Login
 }
