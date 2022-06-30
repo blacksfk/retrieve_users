@@ -17,7 +17,7 @@ func RetrieveUser(username string) (*retrieve_users.User, error) {
 	res, e := http.Get(URL + username)
 
 	if e != nil {
-		return e
+		return nil, e
 	}
 
 	// read and close the body
@@ -25,7 +25,7 @@ func RetrieveUser(username string) (*retrieve_users.User, error) {
 	bytes, e := io.ReadAll(res.Body)
 
 	if e != nil {
-		return e
+		return nil, e
 	}
 
 	// decode the body into a native user type
