@@ -36,7 +36,7 @@ func RetrieveUsers(w http.ResponseWriter, r *http.Request) error {
 		// retrieve the username from the API
 		user, e := github.RetrieveUser(username)
 
-		if e != nil {
+		if e != nil || user.Id == 0 {
 			// error occurred retrieving user.
 			// assume github API is rock solid and
 			// that the user doesn't exist
