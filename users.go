@@ -2,6 +2,8 @@ package retrieve_users
 
 type Users []*User
 
+// Insert the user at a particular position based on what the user
+// comparison function returns.
 func (users Users) SortedInsert(user *User) Users {
 	length := len(users)
 	i := 0
